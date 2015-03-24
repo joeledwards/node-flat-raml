@@ -1,0 +1,8 @@
+#%RAML 0.8
+
+get:
+  response:
+    200:
+      body:
+        application/json: !include base-id-response.json
+  /{id}: !include base-id.raml
