@@ -38,16 +38,17 @@ writeRaml = (serialized, outFile) ->
     deferred.reject(error)
   return deferred.promise
 
-flattenRamlDoc = (inFile, outFile) ->
+ramlAsString = (inFile) ->
   parseRaml inFile 
   .then (data) -> serializeRaml(data)
+
+flattenRamlDoc = (inFile, outFile) ->
+  ramlAsString inFile
   .then (serialized) -> writeRaml(serialized, outFile)
   .then () -> outFile
   
 module.exports = {
-  flatten : flattenRamlDoc
+  flatten : flattenRamlDoc,
+  asString : ramlAsString
 }
-
-flattenRamlDoc "test.raml", "all.raml"
-console.log "started..."
 
