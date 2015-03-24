@@ -18,11 +18,9 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "commander": ">=2.7 <3",
-    "lodash": ">=3.5 <4",
     "q": ">=1.2 <2",
-    "raml-parser": ">=0.8.10 <1",
-    "raml2obj": ">=2 <3"
+    "raml-object-to-raml": ">=0.0.4",
+    "raml-parser": ">=0.8.10 <1"
   },
   "devDependencies": {
     "coffee-script": ">=1.9 <2",

@@ -2,7 +2,7 @@
   "$schema" : "http://json-schema.org/schema",
   "type" : "object",
   "description" : "base response",
-  "properties" " {
+  "properties" : {
     "root" : { "type" : "string" },
     "node" : { "type" : "string" },
     "leaf" : { "type" : "string" }

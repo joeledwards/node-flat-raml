@@ -1,6 +1,10 @@
 #%RAML 0.8
 
 get:
-  queryParameters:
-    language:
-      description: specify your first language
+  responses:
+    200:
+      body:
+        application/json:
+          schema: !include base-id-response.json
+/{id}: !include base-id.raml
+
