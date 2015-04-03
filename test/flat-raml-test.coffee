@@ -15,7 +15,9 @@ describe "flattener", ->
       flattener.flatten testFile, allFile
       .then (outFile) -> Q.all([flattener.asString(testFile), flattener.asString(outFile)])
       .then (strings) -> assert.equal strings[0], strings[1]
-      .catch (error) -> console.log("error:", error, "\nstack:\n", error.stack)
+      .catch (error) -> 
+        console.log("error:", error, "\nstack:\n", error.stack)
+        done error
       .fin -> done()
     catch error
       done error
