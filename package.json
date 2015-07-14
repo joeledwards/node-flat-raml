@@ -1,0 +1,36 @@
+{
+  "name": "flat-raml",
+  "description": "Flatten a multi-file RAML document into a single RAML file",
+  "keywords": [
+    "RAML"
+  ],
+  "version": "1.1.0",
+  "author": "Joel Edwards (https://github.com/joeledwards)",
+  "contributors": [
+    "Joel Edwards <joeledwards@gmail.com> (https://github.com/joeledwards)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joeledwards/node-flat-raml.git"
+  },
+  "main": "./lib/index",
+  "directories" : {
+    "lib": "./lib"
+  },
+  "dependencies": {
+    "q": ">=1.2 <2",
+    "raml-object-to-raml": ">=0.0.4",
+    "raml-parser": ">=0.8.10 <1"
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.9 <2",
+    "mocha": ">=2.2 <3"
+  },
+  "scripts": {
+    "build": "cake build",
+    "test": "cake test"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
