@@ -10,16 +10,16 @@ openWriteStream = (outFile) ->
     deferred.resolve FS.createWriteStream(outFile)
   catch error
     deferred.reject error
-  return deferred.promise
+  deferred.promise
 
 parseRaml = (inFile) ->
   deferred = Q.defer()
   try
-    parser.loadFile inFile  
+    parser.loadFile inFile
       .then ((data) -> deferred.resolve(data)), ((error) -> deferred.reject(error))
   catch error
     deferred.reject error
-  return deferred.promise
+  deferred.promise
 
 serializeRaml = (ramlObj) ->
   deferred = Q.defer()
@@ -27,25 +27,27 @@ serializeRaml = (ramlObj) ->
     deferred.resolve objToRaml(ramlObj)
   catch error
     deferred.reject error
-  return deferred.promise
+  deferred.promise
   
 writeRaml = (serialized, outFile) ->
   deferred = Q.defer()
   try
-    FS.writeFile outFile, serialized 
-    deferred.resolve {} 
+    FS.writeFile outFile, serialized, (error) ->
+      if err?
+        deferred.reject(error)
+      else
+        deferred.resolve(outFile)
   catch error
     deferred.reject(error)
-  return deferred.promise
+  deferred.promise
 
 ramlAsString = (inFile) ->
-  parseRaml inFile 
+  parseRaml inFile
   .then (data) -> serializeRaml(data)
 
 flattenRamlDoc = (inFile, outFile) ->
   ramlAsString inFile
   .then (serialized) -> writeRaml(serialized, outFile)
-  .then () -> outFile
   
 module.exports = {
   flatten : flattenRamlDoc,
