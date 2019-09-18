@@ -1,4 +1,4 @@
-# node-flat-raml
+# node-flat-raml [⚠️ DEPRECATED ⚠️]
 Flatten a multi-file RAML document into a single RAML file
 
 ### Flattening a RAML document into a single file
